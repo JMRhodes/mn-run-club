@@ -1964,6 +1964,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2815,10 +2824,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['href', 'active'],
+  props: ["href", "active"],
   computed: {
     classes: function classes() {
-      return this.active ? 'inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out' : 'inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out';
+      return this.active ? "inline-flex items-center px-6 py-4 font-bold leading-5 bg-gray-800 text-white rounded-lg transition duration-150 ease-in-out mb-4" : "inline-flex items-center px-6 py-4 font-bold leading-5 text-gray-900 hover:bg-gray-800 hover:text-white rounded-lg transition duration-150 ease-in-out mb-4";
     }
   }
 });
@@ -24068,17 +24077,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("nav", { staticClass: "border-b border-gray-100" }, [
-    _c("div", { staticClass: "m-8 p-4" }, [
+  return _c("nav", { staticClass: "w-64 my-10" }, [
+    _c("div", { staticClass: "m-4 py-2" }, [
       _c(
         "div",
         { staticClass: "flex flex-col justify-between h-16" },
         [
-          _c("div", { staticClass: "flex-shrink-0 flex items-center" }, [
+          _c("div", { staticClass: "mb-12" }, [
             _c(
               "a",
-              { attrs: { href: "/" } },
-              [_c("jet-application-mark", { staticClass: "block h-9 w-auto" })],
+              { staticClass: "flex items-center", attrs: { href: "/" } },
+              [
+                _c("jet-application-mark", {
+                  staticClass: "block h-12 w-auto"
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "font-black text-xl ml-2" }, [
+                  _vm._v("Run.club")
+                ])
+              ],
               1
             )
           ]),
@@ -24092,6 +24109,17 @@ var render = function() {
               }
             },
             [_vm._v("\n                Dashboard\n            ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "jet-nav-link",
+            {
+              attrs: {
+                href: "/states",
+                active: _vm.$page.currentRouteName == "stats"
+              }
+            },
+            [_vm._v("\n                Stats\n            ")]
           )
         ],
         1
@@ -24121,13 +24149,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "hidden sm:flex sm:items-center" }, [
+  return _c("div", { staticClass: "w-64" }, [
     _c(
       "div",
       { staticClass: "relative" },
       [
         _c("jet-dropdown", {
-          attrs: { align: "right", width: "48" },
+          attrs: { align: "left", width: "48" },
           scopedSlots: _vm._u([
             {
               key: "trigger",
@@ -25519,14 +25547,14 @@ var render = function() {
       _vm._v(" "),
       _c(
         "main",
-        { staticClass: "drawer--main bg-white p-8 m-4" },
+        { staticClass: "drawer--main bg-white px-8 py-12 my-8" },
         [_vm._t("default")],
         2
       ),
       _vm._v(" "),
       _c(
         "aside",
-        { staticClass: "drawer--secondary p-4 mt-8" },
+        { staticClass: "drawer--secondary p-8 my-10" },
         [_c("ProfileActions")],
         1
       ),

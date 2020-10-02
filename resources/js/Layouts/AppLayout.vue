@@ -3,12 +3,12 @@
         <Navigation />
 
         <!-- Page Content -->
-        <main class="drawer--main bg-white p-8 m-4">
+        <main class="drawer--main bg-white px-8 py-12 my-8">
             <slot></slot>
         </main>
 
         <!-- Page Content -->
-        <aside class="drawer--secondary p-4 mt-8">
+        <aside class="drawer--secondary p-8 my-10">
             <ProfileActions/>
         </aside>
 

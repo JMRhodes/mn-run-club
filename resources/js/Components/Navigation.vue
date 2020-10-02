@@ -1,12 +1,13 @@
 <template>
-    <nav class="border-b border-gray-100">
+    <nav class="w-64 my-10">
         <!-- Primary Navigation Menu -->
-        <div class="m-8 p-4">
+        <div class="m-4 py-2">
             <div class="flex flex-col justify-between h-16">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="/">
-                        <jet-application-mark class="block h-9 w-auto" />
+                <div class="mb-12">
+                    <a href="/" class="flex items-center">
+                        <jet-application-mark class="block h-12 w-auto" />
+                        <span class="font-black text-xl ml-2">Run.club</span>
                     </a>
                 </div>
 
@@ -16,6 +17,14 @@
                     :active="$page.currentRouteName == 'dashboard'"
                 >
                     Dashboard
+                </jet-nav-link>
+
+                <!-- Navigation Links -->
+                <jet-nav-link
+                    href="/states"
+                    :active="$page.currentRouteName == 'stats'"
+                >
+                    Stats
                 </jet-nav-link>
             </div>
         </div>

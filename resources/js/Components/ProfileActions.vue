@@ -1,8 +1,8 @@
 <template>
     <!-- Settings Dropdown -->
-    <div class="hidden sm:flex sm:items-center">
+    <div class="w-64">
         <div class="relative">
-            <jet-dropdown align="right" width="48">
+            <jet-dropdown align="left" width="48">
                 <template #trigger>
                     <button
                         v-if="$page.jetstream.managesProfilePhotos"
