@@ -27,14 +27,6 @@ export default {
         ProfileActions
     },
 
-    methods: {
-        logout() {
-            axios.post("/logout").then(response => {
-                window.location = "/";
-            });
-        }
-    },
-
     computed: {
         path() {
             return window.location.pathname;
@@ -53,7 +45,7 @@ export default {
 .drawer {
     &--main {
         flex: 1;
-        border-radius: 50px;
+        border-radius: 2rem;
     }
 }
 </style>

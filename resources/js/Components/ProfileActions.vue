@@ -95,6 +95,14 @@ export default {
         JetResponsiveNavLink
     },
 
+    methods: {
+        logout() {
+            axios.post("/logout").then(response => {
+                window.location = "/";
+            });
+        }
+    },
+
     data() {
         return {
             showingNavigationDropdown: false

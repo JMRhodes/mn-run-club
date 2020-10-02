@@ -16,6 +16,7 @@
                     href="/"
                     :active="$page.currentRouteName == 'dashboard'"
                 >
+                    <font-awesome-icon :icon="['fas', 'stream']" class="mr-3" />
                     Dashboard
                 </jet-nav-link>
 
@@ -24,6 +25,7 @@
                     href="/states"
                     :active="$page.currentRouteName == 'stats'"
                 >
+                    <font-awesome-icon :icon="['fas', 'chart-bar']" class="mr-3" />
                     Stats
                 </jet-nav-link>
             </div>
