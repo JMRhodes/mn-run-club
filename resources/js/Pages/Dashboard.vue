@@ -1,10 +1,10 @@
 <template>
     <app-layout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
-            </h2>
-        </template>
+        <ul>
+            <li v-for="activity in activities" :key="activity.id">
+                {{ activity }}
+            </li>
+        </ul>
     </app-layout>
 </template>
 
@@ -14,6 +14,7 @@ import AppLayout from "./../Layouts/AppLayout";
 export default {
     components: {
         AppLayout
-    }
+    },
+    props: ["activities"]
 };
 </script>
