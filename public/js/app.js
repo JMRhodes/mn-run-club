@@ -12254,6 +12254,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["activities"]
 });
@@ -34481,9 +34488,24 @@ var render = function() {
             "div",
             {
               staticClass:
-                "activity__item px-6 sm:px-8 py-4 border-b border-gray-200"
+                "activity__item flex items-center px-6 sm:px-8 py-4 border-b border-gray-200"
             },
-            [_vm._v("\n                " + _vm._s(activity) + "\n            ")]
+            [
+              _c("div", { staticClass: "user__avatar" }, [
+                _c("img", {
+                  staticClass: "h-12 w-12 mr-4 rounded-full object-cover",
+                  attrs: {
+                    src: activity.user.data.avatar,
+                    alt: activity.user.data.name
+                  }
+                })
+              ]),
+              _vm._v(
+                "\n                " +
+                  _vm._s(activity.user.data.name) +
+                  "\n            "
+              )
+            ]
           )
         ])
       }),

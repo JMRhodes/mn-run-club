@@ -16,10 +16,10 @@ class ActivityResource extends JsonResource
     public static function buildResponse($request)
     {
         $cache_key = "user_data_{$request->user_id}";
-        $user      = new UserResource(User::find($request->user_id));
-        // $user      = Cache::remember($cache_key, 3600, function ($request) {
-        //     return new UserResource(User::find($request->user_id));
-        // });
+        // $user      = new UserResource(User::find($request->user_id));
+        $user      = Cache::remember($cache_key, 3600, function ($request) {
+            return new UserResource(User::find($request->user_id));
+        });
 
         return [
             'id'          => $request->id,
