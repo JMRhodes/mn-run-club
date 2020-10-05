@@ -25,23 +25,29 @@
                 <x-jet-input class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
-            <div class="block mt-4">
+            <div class="block mt-4 mb-10 flex justify-between">
                 <label class="flex items-center">
                     <input type="checkbox" class="form-checkbox" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-xs font-medium text-gray-500">{{ __('Remember me') }}</span>
                 </label>
-            </div>
 
-            <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    <a class="underline text-xs text-gray-500 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+            </div>
 
-                <x-jet-button class="ml-4">
-                    {{ __('Login') }}
-                </x-jet-button>
+
+            <x-jet-button class="mb-8">
+                {{ __('Login') }}
+            </x-jet-button>
+
+            <div class="block text-gray-700 font-medium flex justify-center">
+                {{ __('I\'m a new user.') }}
+                    <a class="ml-2 font-bold text-orange-500 hover:text-orange-600 transition ease-in-out duration-150" href="{{ route('register') }}">
+                        {{ __('Sign Up') }}
+                    </a>
             </div>
         </form>
     </x-jet-authentication-card>
