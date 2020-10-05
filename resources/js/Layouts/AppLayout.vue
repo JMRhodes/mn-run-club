@@ -3,7 +3,7 @@
         <Navigation />
 
         <!-- Page Content -->
-        <main class="drawer--main bg-white px-8 py-12 my-8">
+        <main class="drawer--main w-1/2 bg-white py-12 my-8">
             <slot></slot>
         </main>
 
@@ -44,7 +44,6 @@ export default {
 }
 .drawer {
     &--main {
-        flex: 1;
         border-radius: 2rem;
     }
 }

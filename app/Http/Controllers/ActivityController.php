@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 use App\Models\Activity;
+use App\Http\Resources\ActivityResource;
 
 class ActivityController extends Controller
 {
@@ -13,10 +14,15 @@ class ActivityController extends Controller
 
     public function getActivities()
     {
-        return Activity::all()->sortBy('date', SORT_REGULAR, true);
+        $activities = Activity::all()->sortBy('date', SORT_REGULAR, true);
+        $response   = [];
+        foreach ($activities as $activity) {
+            $response[] = ActivityResource::buildResponse($activity);
+        }
+        // $activities =  Cache::remember($this->cache_key, 3600, function () {
+        //     return Activity::all()->sortBy('date', SORT_REGULAR, true);
+        // });
 
-        return Cache::remember($this->cache_key, 3600, function () {
-            return Activity::all()->sortBy('date', SORT_REGULAR, true);
-        });
+        return $response;
     }
 }

@@ -7,7 +7,7 @@
                 <div class="mb-12">
                     <a href="/" class="flex items-center">
                         <jet-application-mark class="block h-12 w-auto" />
-                        <span class="font-black text-xl ml-2">Run.club</span>
+                        <span class="font-black text-xl ml-2">run.club</span>
                     </a>
                 </div>
 

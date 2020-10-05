@@ -1,19 +1,17 @@
 <template>
     <app-layout>
-        <ul>
-            <li v-for="activity in activities" :key="activity.id">
-                {{ activity }}
-            </li>
-        </ul>
+        <RecentActivities :activities="activities" />
     </app-layout>
 </template>
 
 <script>
 import AppLayout from "./../Layouts/AppLayout";
+import RecentActivities from "./../Components/RecentActivities";
 
 export default {
     components: {
-        AppLayout
+        AppLayout,
+        RecentActivities
     },
     props: ["activities"]
 };
