@@ -3,7 +3,7 @@
         <Navigation />
 
         <!-- Page Content -->
-        <main class="drawer--main w-1/2 bg-white py-12 my-8">
+        <main class="drawer--main w-1/2 bg-white py-12  pb-4 my-8">
             <slot></slot>
         </main>
 

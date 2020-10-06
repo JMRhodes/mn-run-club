@@ -9,18 +9,18 @@
                         class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out items-center"
                     >
                         <img
-                            class="h-8 w-8 rounded-full object-cover"
+                            class="h-10 w-10 rounded-full object-cover"
                             :src="$page.user.profile_photo_url"
                             :alt="$page.user.name"
                         />
 
-                        <span class="text-gray-800 ml-2"
+                        <span class="text-gray-800 text-base font-bold ml-4"
                             >Hello,
                             {{
                                 $page.user.display
                                     ? $page.user.display
                                     : $page.user.name
-                            }}</span
+                            }}!</span
                         >
                     </button>
 

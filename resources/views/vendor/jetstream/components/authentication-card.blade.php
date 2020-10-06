@@ -1,5 +1,5 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
-    <div class="flex justify-center mb-6">
+<div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
+    <div class="flex justify-center mb-6 mt-8 sm:mt-16">
         {{ $logo }}
     </div>
 
