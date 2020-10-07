@@ -47,7 +47,10 @@
                             <div
                                 class="activity__type font-medium font-xs text-gray-400"
                             >
-                                {{ activity.type }}
+                                {{
+                                    activity.date.complete
+                                        | moment("from", "now", tre)
+                                }}
                             </div>
                         </div>
                         <div class="activity__distance text-base font-bold">

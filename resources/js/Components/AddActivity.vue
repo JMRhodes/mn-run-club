@@ -36,6 +36,7 @@
                                     placeholder="00:00"
                                     ref="finish_time"
                                     v-model="form.finish_time"
+                                    v-mask="'##:##'"
                                 />
                             </div>
                         </div>
@@ -59,6 +60,8 @@
 </template>
 
 <script>
+import { mask } from "vue-the-mask";
+
 import Modal from "./../Jetstream/Modal";
 import JetLabel from "./../Jetstream/Label";
 import JetInput from "./../Jetstream/Input";
@@ -73,6 +76,7 @@ export default {
         JetButton,
         JetInputError
     },
+    directives: { mask },
 
     props: ["userId", "date", "type", "distance", "finish_time"],
 
