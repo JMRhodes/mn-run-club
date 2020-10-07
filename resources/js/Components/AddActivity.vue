@@ -1,13 +1,13 @@
 <template>
     <span>
-        <span @click="openModal">
+        <span @click="showAddActivity = true">
             <slot />
         </span>
 
         <modal
             :show="showAddActivity"
             @close="showAddActivity = false"
-            max-width="2xl"
+            max-width="xl"
         >
             <form @submit.prevent="submitActivity">
                 <div class="px-6 py-4">
@@ -16,7 +16,7 @@
                     </div>
 
                     <div class="py-4">
-                        <div class="w-1/2 sm:pr-2">
+                        <div class="w-1/2 sm:pr-2 mb-4">
                             <jet-label for="date" value="Date" />
                             <v-date-picker
                                 v-model="form.date"
@@ -31,7 +31,31 @@
                                 }"
                             />
                         </div>
-                        <div class="mt-4 flex justify-between">
+                        <div class="w-full mb-4">
+                            <jet-label for="type" value="Type" />
+                            <jet-input
+                                type="hidden"
+                                ref="type"
+                                v-model="form.type"
+                            />
+                            <div class="add-activity__types flex mt-1">
+                                <a
+                                    v-for="(type, index) in types"
+                                    :key="index"
+                                    class="add-activity__type bg-gray-100 h-16 w-16 rounded-md flex items-center justify-center p-2 mr-4"
+                                    :class="type.icon"
+                                    ref="typeIcons"
+                                    @click="setActivityType(type.name, index)"
+                                >
+                                    <font-awesome-icon
+                                        :icon="['fas', type.icon]"
+                                        class="block w-full"
+                                        size="2x"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mb-4 flex justify-between">
                             <div class="w-1/2 sm:pr-2">
                                 <jet-label for="distance" value="Distance" />
                                 <jet-input
@@ -97,6 +121,20 @@ export default {
     data() {
         return {
             showAddActivity: false,
+            types: [
+                {
+                    name: "run",
+                    icon: "running"
+                },
+                {
+                    name: "walk",
+                    icon: "walking"
+                },
+                {
+                    name: "bike",
+                    icon: "biking"
+                }
+            ],
             form: this.$inertia.form(
                 {
                     _method: "POST",
@@ -117,6 +155,9 @@ export default {
 
     methods: {
         submitActivity() {
+            this.form.date = moment(this.form.date)
+                .format("YYYY-MM-DD hh:mm:ss")
+                .toString();
             this.form
                 .post("/api/activity", {
                     preserveScroll: true
@@ -124,6 +165,13 @@ export default {
                 .then(() => {
                     this.showAddActivity = false;
                 });
+        },
+        setActivityType(selected, index) {
+            this.form.type = selected;
+            for (let i = 0; i < this.$refs.typeIcons.length; i++) {
+                this.$refs.typeIcons[i].classList.remove("active");
+            }
+            this.$refs.typeIcons[index].classList.add("active");
         },
         openModal() {
             this.showAddActivity = true;
@@ -134,3 +182,15 @@ export default {
     }
 };
 </script>
+
+<style lang="scss">
+.add-activity {
+    &__type {
+        cursor: pointer;
+
+        &.active {
+            @apply bg-gray-300;
+        }
+    }
+}
+</style>

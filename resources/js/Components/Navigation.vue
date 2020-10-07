@@ -19,15 +19,6 @@
                     <font-awesome-icon :icon="['fas', 'stream']" class="mr-3" />
                     Dashboard
                 </jet-nav-link>
-
-                <!-- Navigation Links -->
-                <jet-nav-link
-                    href="/states"
-                    :active="$page.currentRouteName == 'stats'"
-                >
-                    <font-awesome-icon :icon="['fas', 'chart-bar']" class="mr-3" />
-                    Stats
-                </jet-nav-link>
             </div>
         </div>
     </nav>

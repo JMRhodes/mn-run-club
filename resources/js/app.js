@@ -6,7 +6,7 @@ import { InertiaApp } from "@inertiajs/inertia-vue";
 import { InertiaForm } from "laravel-jetstream";
 import PortalVue from "portal-vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faStream, faChartBar } from "@fortawesome/free-solid-svg-icons";
+import { faStream, faChartBar, faRunning, faWalking, faBiking } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import VCalendar from "v-calendar";
 
@@ -17,7 +17,7 @@ Vue.use(PortalVue);
 Vue.use(VCalendar);
 Vue.use(require("vue-moment"));
 
-library.add([faStream, faChartBar]);
+library.add([faStream, faChartBar, faRunning, faWalking, faBiking]);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
