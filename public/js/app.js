@@ -12144,6 +12144,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -12193,7 +12194,7 @@ __webpack_require__.r(__webpack_exports__);
     submitActivity: function submitActivity() {
       var _this = this;
 
-      this.form.date = moment(this.form.date).format("YYYY-MM-DD hh:mm:ss").toString();
+      this.form.date = moment(this.form.date).format("YYYY-MM-DD HH:mm:ss").toString();
       this.form.post("/api/activity", {
         preserveScroll: true
       }).then(function () {
@@ -34594,6 +34595,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("v-date-picker", {
                         attrs: {
+                          popover: { placement: "bottom", visibility: "click" },
                           locale: "us-EN",
                           "max-date": new Date(),
                           masks: {

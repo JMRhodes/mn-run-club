@@ -20,6 +20,7 @@
                             <jet-label for="date" value="Date" />
                             <v-date-picker
                                 v-model="form.date"
+                                :popover="{ placement: 'bottom', visibility: 'click' }"
                                 locale="us-EN"
                                 :max-date="new Date()"
                                 :masks="{
@@ -156,7 +157,7 @@ export default {
     methods: {
         submitActivity() {
             this.form.date = moment(this.form.date)
-                .format("YYYY-MM-DD hh:mm:ss")
+                .format("YYYY-MM-DD HH:mm:ss")
                 .toString();
             this.form
                 .post("/api/activity", {
