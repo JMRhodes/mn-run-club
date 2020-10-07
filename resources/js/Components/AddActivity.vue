@@ -1,37 +1,52 @@
 <template>
     <span>
-        <span @click="startAddActivity">
+        <span @click="showAddActivity = true">
             <slot />
         </span>
 
-        <jet-dialog-modal :show="addActivity" @close="addActivity = false">
-            <template #title>
-                {{ title }}
-            </template>
+        <jet-dialog-modal
+            :show="showAddActivity"
+            @close="showAddActivity = false"
+        >
+            <template #title> Add Activity</template>
 
             <template #content>
-                {{ content }}
-
-                <div class="mt-4">
-                    <jet-input
-                        type="text"
-                        class="mt-1 block w-3/4"
-                        placeholder="Distance"
-                        ref="password"
-                        v-model="form.password"
-                        @keyup.enter.native="confirmPassword"
-                    />
-
-                    <jet-input-error :message="form.error" class="mt-2" />
-                </div>
+                <form @submit.prevent="submitActivity">
+                    <div class="mt-4 flex justify-between">
+                        <div class="w-1/2 sm:pr-2">
+                            <jet-label for="distance" value="Distance" />
+                            <jet-input
+                                type="text"
+                                class="mt-1 block w-full"
+                                placeholder="Distance"
+                                ref="distance"
+                                v-model="form.distance"
+                            />
+                        </div>
+                        <div class="w-1/2 sm:pl-2">
+                            <jet-label for="finish_time" value="finish_time" />
+                            <jet-input
+                                type="text"
+                                class="mt-1 block w-full"
+                                placeholder="Time"
+                                ref="finish_time"
+                                v-model="form.finish_time"
+                            />
+                        </div>
+                    </div>
+                    <jet-button
+                        :class="{
+                            'opacity-25': form.processing,
+                            'bg-green-300 border-green-400 hover:bg-green-400 hover:border-green-500': true
+                        }"
+                        :disabled="form.processing"
+                    >
+                        Add Activitiy
+                    </jet-button>
+                </form>
             </template>
 
-            <template #footer>
-                <Button
-                    class="bg-green-300 border-green-400 hover:bg-green-400 hover:border-green-500"
-                    >Add Activitiy</Button
-                >
-            </template>
+            <template #footer> </template>
         </jet-dialog-modal>
     </span>
 </template>
@@ -39,84 +54,54 @@
 <script>
 import Button from "./../Jetstream/Button";
 import JetDialogModal from "./../Jetstream/DialogModal";
+import JetLabel from "./../Jetstream/Label";
 import JetInput from "./../Jetstream/Input";
+import JetButton from "./../Jetstream/Button";
 import JetInputError from "./../Jetstream/InputError";
 import JetSecondaryButton from "./../Jetstream/SecondaryButton";
 
 export default {
-    props: {
-        title: {
-            default: "Add Activity"
-        },
-        content: {
-            default:
-                "Add your activity details below."
-        },
-        button: {
-            default: "Confirm"
-        }
-    },
-
     components: {
         Button,
         JetDialogModal,
+        JetLabel,
         JetInput,
+        JetButton,
         JetInputError,
         JetSecondaryButton
     },
 
+    props: ["userId", "date", "type", "distance", "finish_time"],
+
     data() {
         return {
-            addActivity: false,
-
+            showAddActivity: false,
             form: this.$inertia.form(
                 {
-                    password: "",
-                    error: ""
+                    _method: "POST",
+                    user_id: this.userId,
+                    date: "2020-10-04",
+                    type: "run",
+                    rating: 5,
+                    distance: this.distance,
+                    finish_time: this.finish_time
                 },
                 {
-                    bag: "confirmPassword"
+                    bag: "submitActivity",
+                    resetOnSuccess: true
                 }
             )
         };
     },
 
     methods: {
-        startAddActivity() {
-            this.form.error = "";
-
-            axios.get("/user/confirmed-password-status").then(response => {
-                if (response.data.confirmed) {
-                    this.$emit("confirmed");
-                } else {
-                    this.addActivity = true;
-                    this.form.password = "";
-
-                    setTimeout(() => {
-                        this.$refs.password.focus();
-                    }, 250);
-                }
-            });
-        },
-
-        confirmPassword() {
-            this.form.processing = true;
-
-            axios
-                .post("/user/confirm-password", {
-                    password: this.form.password
+        submitActivity() {
+            this.form
+                .post("/api/activity", {
+                    preserveScroll: true
                 })
-                .then(response => {
-                    this.addActivity = false;
-                    this.form.password = "";
-                    this.form.error = "";
-                    this.form.processing = false;
-
-                    this.$nextTick(() => this.$emit("confirmed"));
-                })
-                .catch(error => {
-                    this.form.processing = false;
-                    this.form.error = error.response.data.errors.password[0];
+                .then(() => {
+                    this.showAddActivity = false;
                 });
         }
     }

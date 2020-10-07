@@ -12040,9 +12040,10 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Jetstream/Button */ "./resources/js/Jetstream/Button.vue");
 /* harmony import */ var _Jetstream_DialogModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Jetstream/DialogModal */ "./resources/js/Jetstream/DialogModal.vue");
-/* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
-/* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
-/* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
+/* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
+/* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
+/* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
 //
 //
 //
@@ -12081,76 +12082,64 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    title: {
-      "default": "Add Activity"
-    },
-    content: {
-      "default": "Add your activity details below."
-    },
-    button: {
-      "default": "Confirm"
-    }
-  },
   components: {
     Button: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_0__["default"],
     JetDialogModal: _Jetstream_DialogModal__WEBPACK_IMPORTED_MODULE_1__["default"],
-    JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_2__["default"],
-    JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_3__["default"],
-    JetSecondaryButton: _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_4__["default"]
+    JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_2__["default"],
+    JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
+    JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_0__["default"],
+    JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__["default"],
+    JetSecondaryButton: _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
+  props: ["userId", "date", "type", "distance", "finish_time"],
   data: function data() {
     return {
-      addActivity: false,
+      showAddActivity: false,
       form: this.$inertia.form({
-        password: "",
-        error: ""
+        _method: "POST",
+        user_id: this.userId,
+        date: "2020-10-04",
+        type: "run",
+        rating: 5,
+        distance: this.distance,
+        finish_time: this.finish_time
       }, {
-        bag: "confirmPassword"
+        bag: "submitActivity",
+        resetOnSuccess: true
       })
     };
   },
   methods: {
-    startAddActivity: function startAddActivity() {
+    submitActivity: function submitActivity() {
       var _this = this;
 
-      this.form.error = "";
-      axios.get("/user/confirmed-password-status").then(function (response) {
-        if (response.data.confirmed) {
-          _this.$emit("confirmed");
-        } else {
-          _this.addActivity = true;
-          _this.form.password = "";
-          setTimeout(function () {
-            _this.$refs.password.focus();
-          }, 250);
-        }
-      });
-    },
-    confirmPassword: function confirmPassword() {
-      var _this2 = this;
-
-      this.form.processing = true;
-      axios.post("/user/confirm-password", {
-        password: this.form.password
-      }).then(function (response) {
-        _this2.addActivity = false;
-        _this2.form.password = "";
-        _this2.form.error = "";
-        _this2.form.processing = false;
-
-        _this2.$nextTick(function () {
-          return _this2.$emit("confirmed");
-        });
-      })["catch"](function (error) {
-        _this2.form.processing = false;
-        _this2.form.error = error.response.data.errors.password[0];
+      this.form.post("/api/activity", {
+        preserveScroll: true
+      }).then(function () {
+        _this.showAddActivity = false;
       });
     }
   }
@@ -34401,25 +34390,29 @@ var render = function() {
     [
       _c(
         "span",
-        { on: { click: _vm.startAddActivity } },
+        {
+          on: {
+            click: function($event) {
+              _vm.showAddActivity = true
+            }
+          }
+        },
         [_vm._t("default")],
         2
       ),
       _vm._v(" "),
       _c("jet-dialog-modal", {
-        attrs: { show: _vm.addActivity },
+        attrs: { show: _vm.showAddActivity },
         on: {
           close: function($event) {
-            _vm.addActivity = false
+            _vm.showAddActivity = false
           }
         },
         scopedSlots: _vm._u([
           {
             key: "title",
             fn: function() {
-              return [
-                _vm._v("\n            " + _vm._s(_vm.title) + "\n        ")
-              ]
+              return [_vm._v(" Add Activity")]
             },
             proxy: true
           },
@@ -34427,47 +34420,82 @@ var render = function() {
             key: "content",
             fn: function() {
               return [
-                _vm._v(
-                  "\n            " + _vm._s(_vm.content) + "\n\n            "
-                ),
                 _c(
-                  "div",
-                  { staticClass: "mt-4" },
-                  [
-                    _c("jet-input", {
-                      ref: "password",
-                      staticClass: "mt-1 block w-3/4",
-                      attrs: { type: "text", placeholder: "Distance" },
-                      nativeOn: {
-                        keyup: function($event) {
-                          if (
-                            !$event.type.indexOf("key") &&
-                            _vm._k(
-                              $event.keyCode,
-                              "enter",
-                              13,
-                              $event.key,
-                              "Enter"
-                            )
-                          ) {
-                            return null
-                          }
-                          return _vm.confirmPassword($event)
-                        }
-                      },
-                      model: {
-                        value: _vm.form.password,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "password", $$v)
-                        },
-                        expression: "form.password"
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.submitActivity($event)
                       }
-                    }),
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "mt-4 flex justify-between" }, [
+                      _c(
+                        "div",
+                        { staticClass: "w-1/2 sm:pr-2" },
+                        [
+                          _c("jet-label", {
+                            attrs: { for: "distance", value: "Distance" }
+                          }),
+                          _vm._v(" "),
+                          _c("jet-input", {
+                            ref: "distance",
+                            staticClass: "mt-1 block w-full",
+                            attrs: { type: "text", placeholder: "Distance" },
+                            model: {
+                              value: _vm.form.distance,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "distance", $$v)
+                              },
+                              expression: "form.distance"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "w-1/2 sm:pl-2" },
+                        [
+                          _c("jet-label", {
+                            attrs: { for: "finish_time", value: "finish_time" }
+                          }),
+                          _vm._v(" "),
+                          _c("jet-input", {
+                            ref: "finish_time",
+                            staticClass: "mt-1 block w-full",
+                            attrs: { type: "text", placeholder: "Time" },
+                            model: {
+                              value: _vm.form.finish_time,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "finish_time", $$v)
+                              },
+                              expression: "form.finish_time"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ]),
                     _vm._v(" "),
-                    _c("jet-input-error", {
-                      staticClass: "mt-2",
-                      attrs: { message: _vm.form.error }
-                    })
+                    _c(
+                      "jet-button",
+                      {
+                        class: {
+                          "opacity-25": _vm.form.processing,
+                          "bg-green-300 border-green-400 hover:bg-green-400 hover:border-green-500": true
+                        },
+                        attrs: { disabled: _vm.form.processing }
+                      },
+                      [
+                        _vm._v(
+                          "\n                    Add Activitiy\n                "
+                        )
+                      ]
+                    )
                   ],
                   1
                 )
@@ -34478,16 +34506,7 @@ var render = function() {
           {
             key: "footer",
             fn: function() {
-              return [
-                _c(
-                  "Button",
-                  {
-                    staticClass:
-                      "bg-green-300 border-green-400 hover:bg-green-400 hover:border-green-500"
-                  },
-                  [_vm._v("Add Activitiy")]
-                )
-              ]
+              return undefined
             },
             proxy: true
           }
@@ -34792,6 +34811,7 @@ var render = function() {
           [
             _c(
               "add-activity",
+              { attrs: { userId: _vm.$page.user.id } },
               [
                 _c(
                   "Button",
@@ -35819,15 +35839,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "label",
-    { staticClass: "block font-medium text-sm text-gray-700" },
-    [
-      _vm.value
-        ? _c("span", [_vm._v(_vm._s(_vm.value))])
-        : _c("span", [_vm._t("default")], 2)
-    ]
-  )
+  return _c("label", { staticClass: "block font-bold text-gray-700" }, [
+    _vm.value
+      ? _c("span", [_vm._v(_vm._s(_vm.value))])
+      : _c("span", [_vm._t("default")], 2)
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37605,7 +37621,7 @@ var render = function() {
                               "grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg"
                           },
                           _vm._l(_vm.recoveryCodes, function(code) {
-                            return _c("div", [
+                            return _c("div", { key: code.id }, [
                               _vm._v(
                                 "\n                        " +
                                   _vm._s(code) +

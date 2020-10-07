@@ -13,7 +13,7 @@ Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
 
-library.add([faStream, faChartBar])
+library.add([faStream, faChartBar]);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
