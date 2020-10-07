@@ -49,7 +49,7 @@
                             >
                                 {{
                                     activity.date.complete
-                                        | moment("from", "now", tre)
+                                        | moment("from", "now")
                                 }}
                             </div>
                         </div>

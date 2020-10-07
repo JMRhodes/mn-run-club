@@ -8,7 +8,6 @@
             :show="showAddActivity"
             @close="showAddActivity = false"
             max-width="2xl"
-            closeable="true"
         >
             <form @submit.prevent="submitActivity">
                 <div class="px-6 py-4">
@@ -17,6 +16,21 @@
                     </div>
 
                     <div class="py-4">
+                        <div class="w-1/2 sm:pr-2">
+                            <jet-label for="date" value="Date" />
+                            <v-date-picker
+                                v-model="form.date"
+                                locale="us-EN"
+                                :max-date="new Date()"
+                                :masks="{
+                                    input: 'MMMM D, YYYY',
+                                    data: 'YYYY-MM-DD'
+                                }"
+                                :input-props="{
+                                    class: 'form-input text-lg rounded-lg px-6'
+                                }"
+                            />
+                        </div>
                         <div class="mt-4 flex justify-between">
                             <div class="w-1/2 sm:pr-2">
                                 <jet-label for="distance" value="Distance" />
@@ -87,7 +101,7 @@ export default {
                 {
                     _method: "POST",
                     user_id: this.userId,
-                    date: "2020-10-04",
+                    date: new Date(),
                     type: "run",
                     rating: 5,
                     distance: this.distance,

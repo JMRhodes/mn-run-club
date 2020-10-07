@@ -8,10 +8,13 @@ import PortalVue from "portal-vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStream, faChartBar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import VCalendar from "v-calendar";
 
+// Register components in your 'main.js'
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
+Vue.use(VCalendar);
 Vue.use(require("vue-moment"));
 
 library.add([faStream, faChartBar]);
