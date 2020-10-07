@@ -12038,12 +12038,11 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Jetstream_Button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Jetstream/Button */ "./resources/js/Jetstream/Button.vue");
-/* harmony import */ var _Jetstream_DialogModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Jetstream/DialogModal */ "./resources/js/Jetstream/DialogModal.vue");
-/* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
-/* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Jetstream_Modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Jetstream/Modal */ "./resources/js/Jetstream/Modal.vue");
+/* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
+/* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Jetstream_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../Jetstream/Button */ "./resources/js/Jetstream/Button.vue");
 /* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
-/* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
 //
 //
 //
@@ -12097,8 +12096,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -12106,13 +12110,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Button: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_0__["default"],
-    JetDialogModal: _Jetstream_DialogModal__WEBPACK_IMPORTED_MODULE_1__["default"],
-    JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_2__["default"],
-    JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_3__["default"],
-    JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_0__["default"],
-    JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__["default"],
-    JetSecondaryButton: _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Modal: _Jetstream_Modal__WEBPACK_IMPORTED_MODULE_0__["default"],
+    JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_1__["default"],
+    JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_2__["default"],
+    JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_3__["default"],
+    JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: ["userId", "date", "type", "distance", "finish_time"],
   data: function data() {
@@ -12141,6 +12143,14 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function () {
         _this.showAddActivity = false;
       });
+    },
+    openModal: function openModal() {
+      var _this2 = this;
+
+      this.showAddActivity = true;
+      setTimeout(function () {
+        _this2.$refs.distance.focus();
+      }, 150);
     }
   }
 });
@@ -34388,130 +34398,118 @@ var render = function() {
   return _c(
     "span",
     [
+      _c("span", { on: { click: _vm.openModal } }, [_vm._t("default")], 2),
+      _vm._v(" "),
       _c(
-        "span",
+        "modal",
         {
+          attrs: {
+            show: _vm.showAddActivity,
+            "max-width": "2xl",
+            closeable: "true"
+          },
           on: {
-            click: function($event) {
-              _vm.showAddActivity = true
+            close: function($event) {
+              _vm.showAddActivity = false
             }
           }
         },
-        [_vm._t("default")],
-        2
-      ),
-      _vm._v(" "),
-      _c("jet-dialog-modal", {
-        attrs: { show: _vm.showAddActivity },
-        on: {
-          close: function($event) {
-            _vm.showAddActivity = false
-          }
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "title",
-            fn: function() {
-              return [_vm._v(" Add Activity")]
+        [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.submitActivity($event)
+                }
+              }
             },
-            proxy: true
-          },
-          {
-            key: "content",
-            fn: function() {
-              return [
-                _c(
-                  "form",
-                  {
-                    on: {
-                      submit: function($event) {
-                        $event.preventDefault()
-                        return _vm.submitActivity($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "mt-4 flex justify-between" }, [
-                      _c(
-                        "div",
-                        { staticClass: "w-1/2 sm:pr-2" },
-                        [
-                          _c("jet-label", {
-                            attrs: { for: "distance", value: "Distance" }
-                          }),
-                          _vm._v(" "),
-                          _c("jet-input", {
-                            ref: "distance",
-                            staticClass: "mt-1 block w-full",
-                            attrs: { type: "text", placeholder: "Distance" },
-                            model: {
-                              value: _vm.form.distance,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "distance", $$v)
-                              },
-                              expression: "form.distance"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "w-1/2 sm:pl-2" },
-                        [
-                          _c("jet-label", {
-                            attrs: { for: "finish_time", value: "finish_time" }
-                          }),
-                          _vm._v(" "),
-                          _c("jet-input", {
-                            ref: "finish_time",
-                            staticClass: "mt-1 block w-full",
-                            attrs: { type: "text", placeholder: "Time" },
-                            model: {
-                              value: _vm.form.finish_time,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "finish_time", $$v)
-                              },
-                              expression: "form.finish_time"
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
+            [
+              _c("div", { staticClass: "px-6 py-4" }, [
+                _c("div", { staticClass: "text-lg" }, [
+                  _vm._v("\n                    Add Activity\n                ")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "py-4" }, [
+                  _c("div", { staticClass: "mt-4 flex justify-between" }, [
+                    _c(
+                      "div",
+                      { staticClass: "w-1/2 sm:pr-2" },
+                      [
+                        _c("jet-label", {
+                          attrs: { for: "distance", value: "Distance" }
+                        }),
+                        _vm._v(" "),
+                        _c("jet-input", {
+                          ref: "distance",
+                          staticClass: "mt-1 block w-full",
+                          attrs: { type: "text", placeholder: "0.00" },
+                          model: {
+                            value: _vm.form.distance,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "distance", $$v)
+                            },
+                            expression: "form.distance"
+                          }
+                        })
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c(
-                      "jet-button",
-                      {
-                        class: {
-                          "opacity-25": _vm.form.processing,
-                          "bg-green-300 border-green-400 hover:bg-green-400 hover:border-green-500": true
-                        },
-                        attrs: { disabled: _vm.form.processing }
-                      },
+                      "div",
+                      { staticClass: "w-1/2 sm:pl-2" },
                       [
-                        _vm._v(
-                          "\n                    Add Activitiy\n                "
-                        )
-                      ]
+                        _c("jet-label", {
+                          attrs: { for: "finish_time", value: "Time" }
+                        }),
+                        _vm._v(" "),
+                        _c("jet-input", {
+                          ref: "finish_time",
+                          staticClass: "mt-1 block w-full",
+                          attrs: { type: "text", placeholder: "00:00" },
+                          model: {
+                            value: _vm.form.finish_time,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "finish_time", $$v)
+                            },
+                            expression: "form.finish_time"
+                          }
+                        })
+                      ],
+                      1
                     )
-                  ],
-                  1
-                )
-              ]
-            },
-            proxy: true
-          },
-          {
-            key: "footer",
-            fn: function() {
-              return undefined
-            },
-            proxy: true
-          }
-        ])
-      })
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "px-6 py-4 bg-gray-100 text-right" },
+                [
+                  _c(
+                    "jet-button",
+                    {
+                      class: {
+                        "opacity-25": _vm.form.processing,
+                        "bg-green-300 border-green-400 hover:bg-green-400 hover:border-green-500": true
+                      },
+                      attrs: { disabled: _vm.form.processing }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Add Activitiy\n                "
+                      )
+                    ]
+                  )
+                ],
+                1
+              )
+            ]
+          )
+        ]
+      )
     ],
     1
   )

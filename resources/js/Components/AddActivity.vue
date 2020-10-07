@@ -1,39 +1,48 @@
 <template>
     <span>
-        <span @click="showAddActivity = true">
+        <span @click="openModal">
             <slot />
         </span>
 
-        <jet-dialog-modal
+        <modal
             :show="showAddActivity"
             @close="showAddActivity = false"
+            max-width="2xl"
+            closeable="true"
         >
-            <template #title> Add Activity</template>
+            <form @submit.prevent="submitActivity">
+                <div class="px-6 py-4">
+                    <div class="text-lg">
+                        Add Activity
+                    </div>
 
-            <template #content>
-                <form @submit.prevent="submitActivity">
-                    <div class="mt-4 flex justify-between">
-                        <div class="w-1/2 sm:pr-2">
-                            <jet-label for="distance" value="Distance" />
-                            <jet-input
-                                type="text"
-                                class="mt-1 block w-full"
-                                placeholder="Distance"
-                                ref="distance"
-                                v-model="form.distance"
-                            />
-                        </div>
-                        <div class="w-1/2 sm:pl-2">
-                            <jet-label for="finish_time" value="finish_time" />
-                            <jet-input
-                                type="text"
-                                class="mt-1 block w-full"
-                                placeholder="Time"
-                                ref="finish_time"
-                                v-model="form.finish_time"
-                            />
+                    <div class="py-4">
+                        <div class="mt-4 flex justify-between">
+                            <div class="w-1/2 sm:pr-2">
+                                <jet-label for="distance" value="Distance" />
+                                <jet-input
+                                    type="text"
+                                    class="mt-1 block w-full"
+                                    placeholder="0.00"
+                                    ref="distance"
+                                    v-model="form.distance"
+                                />
+                            </div>
+                            <div class="w-1/2 sm:pl-2">
+                                <jet-label for="finish_time" value="Time" />
+                                <jet-input
+                                    type="text"
+                                    class="mt-1 block w-full"
+                                    placeholder="00:00"
+                                    ref="finish_time"
+                                    v-model="form.finish_time"
+                                />
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="px-6 py-4 bg-gray-100 text-right">
                     <jet-button
                         :class="{
                             'opacity-25': form.processing,
@@ -43,32 +52,26 @@
                     >
                         Add Activitiy
                     </jet-button>
-                </form>
-            </template>
-
-            <template #footer> </template>
-        </jet-dialog-modal>
+                </div>
+            </form>
+        </modal>
     </span>
 </template>
 
 <script>
-import Button from "./../Jetstream/Button";
-import JetDialogModal from "./../Jetstream/DialogModal";
+import Modal from "./../Jetstream/Modal";
 import JetLabel from "./../Jetstream/Label";
 import JetInput from "./../Jetstream/Input";
 import JetButton from "./../Jetstream/Button";
 import JetInputError from "./../Jetstream/InputError";
-import JetSecondaryButton from "./../Jetstream/SecondaryButton";
 
 export default {
     components: {
-        Button,
-        JetDialogModal,
+        Modal,
         JetLabel,
         JetInput,
         JetButton,
-        JetInputError,
-        JetSecondaryButton
+        JetInputError
     },
 
     props: ["userId", "date", "type", "distance", "finish_time"],
@@ -103,6 +106,12 @@ export default {
                 .then(() => {
                     this.showAddActivity = false;
                 });
+        },
+        openModal() {
+            this.showAddActivity = true;
+            setTimeout(() => {
+                this.$refs.distance.focus();
+            }, 150);
         }
     }
 };
