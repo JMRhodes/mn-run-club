@@ -8,12 +8,12 @@
             Forgot Password
         </x-slot>
 
-        <div class="mb-6 text-sm text-gray-600">
+        <div>
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
 
         @if (session('status'))
-            <div class="mb-6 font-medium text-sm text-green-600">
+            <div>
                 {{ session('status') }}
             </div>
         @endif
@@ -25,7 +25,7 @@
 
             <div class="block mb-10">
                 <x-jet-label value="{{ __('Email') }}" />
-                <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-jet-input type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <x-jet-button>

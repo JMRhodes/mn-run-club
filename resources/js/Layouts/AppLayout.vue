@@ -1,6 +1,6 @@
 <template>
     <div class="app min-h-screen bg-gray-100">
-        <Navigation />
+        <navigation />
 
         <!-- Page Content -->
         <main class="drawer--main w-1/2 bg-white py-12  pb-4 my-8">
@@ -9,7 +9,7 @@
 
         <!-- Page Content -->
         <aside class="drawer--secondary p-8 my-10">
-            <ProfileActions/>
+            <profile-actions/>
         </aside>
 
         <!-- Modal Portal -->

@@ -14535,7 +14535,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".add-activity__type {\n  cursor: pointer;\n}\n.add-activity__type.active {\n  --bg-opacity: 1;\n  background-color: #d2d6dc;\n  background-color: rgba(210, 214, 220, var(--bg-opacity));\n}", ""]);
+exports.push([module.i, ".add-activity__type {\n  cursor: pointer;\n}\n.add-activity__type.active {\n  --bg-opacity: 1;\n  background-color: #e0e0e0;\n  background-color: rgba(224, 224, 224, var(--bg-opacity));\n}", ""]);
 
 // exports
 
@@ -36423,7 +36423,7 @@ var render = function() {
     "div",
     { staticClass: "app min-h-screen bg-gray-100" },
     [
-      _c("Navigation"),
+      _c("navigation"),
       _vm._v(" "),
       _c(
         "main",
@@ -36435,7 +36435,7 @@ var render = function() {
       _c(
         "aside",
         { staticClass: "drawer--secondary p-8 my-10" },
-        [_c("ProfileActions")],
+        [_c("profile-actions")],
         1
       ),
       _vm._v(" "),

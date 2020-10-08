@@ -20,7 +20,21 @@ module.exports = {
             colors: {
                 "bg-green-p": "#55efc4",
                 "bg-green-s": "#00b894",
-                "bg-orange-std": '#FF7A4F',
+                "bg-orange-std": "#FF7A4F"
+            }
+        },
+        colors: {
+            orange: "#FFCC00",
+            gray: {
+                "100": "#f5f5f5",
+                "200": "#eeeeee",
+                "300": "#e0e0e0",
+                "400": "#bdbdbd",
+                "500": "#9e9e9e",
+                "600": "#757575",
+                "700": "#616161",
+                "800": "#424242",
+                "900": "#212121"
             }
         }
     },
