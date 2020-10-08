@@ -13,7 +13,7 @@
             <div class="add-activity">
                 <add-activity :userId="$page.user.id">
                     <Button
-                        class="bg-green-300 border-green-400 hover:bg-green-400 hover:border-green-500"
+                        class="bg-orange-std hover:bg-green-400 hover:border-green-500"
                         >Add Activitiy</Button
                     >
                 </add-activity>

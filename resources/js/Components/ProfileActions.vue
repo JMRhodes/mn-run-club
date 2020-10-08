@@ -14,14 +14,15 @@
                             :alt="$page.user.name"
                         />
 
-                        <span class="text-gray-800 text-base font-bold ml-4"
+                        <span class="text-gray-800 text-lg font-bold ml-4 leading-snug text-left"
                             >Hello,
                             {{
                                 $page.user.display
                                     ? $page.user.display
                                     : $page.user.name
-                            }}!</span
-                        >
+                            }}!
+                            <div class="block font-medium text-sm text-gray-400">Level: <span class="font-bold text-orange-400">Beginner</span></div>
+                        </span>
                     </button>
 
                     <button

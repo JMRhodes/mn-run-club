@@ -12382,6 +12382,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -34884,7 +34885,7 @@ var render = function() {
                             "span",
                             {
                               staticClass:
-                                "text-gray-800 text-base font-bold ml-4"
+                                "text-gray-800 text-lg font-bold ml-4 leading-snug text-left"
                             },
                             [
                               _vm._v(
@@ -34894,7 +34895,24 @@ var render = function() {
                                       ? _vm.$page.user.display
                                       : _vm.$page.user.name
                                   ) +
-                                  "!"
+                                  "!\n                        "
+                              ),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block font-medium text-sm text-gray-400"
+                                },
+                                [
+                                  _vm._v("Level: "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass: "font-bold text-orange-400"
+                                    },
+                                    [_vm._v("Beginner")]
+                                  )
+                                ]
                               )
                             ]
                           )
@@ -35045,7 +35063,7 @@ var render = function() {
                   "Button",
                   {
                     staticClass:
-                      "bg-green-300 border-green-400 hover:bg-green-400 hover:border-green-500"
+                      "bg-orange-std hover:bg-green-400 hover:border-green-500"
                   },
                   [_vm._v("Add Activitiy")]
                 )
