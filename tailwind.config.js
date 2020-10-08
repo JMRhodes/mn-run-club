@@ -23,10 +23,27 @@ module.exports = {
                 "bg-orange-std": "#FF7A4F"
             }
         },
+        fontFamily: {
+            ...defaultTheme.fontFamily,
+            "raleway": ["Raleway", ...defaultTheme.fontFamily.sans]
+        },
+        fontSize: {
+            ...defaultTheme.fontSize,
+            "8xl": "6rem",
+            "10xl": "8rem"
+        },
         colors: {
-            orange: "#FFCC00",
+            white: "#FFFFFF",
+            black: "#000000",
+            primary: "#00ebc7",
+            secondary: "#ff5470",
+            tertiary: "#fde24f",
+            blue: {
+                "800": "#1b2d45",
+                "900": "#00214d"
+            },
             gray: {
-                "100": "#f5f5f5",
+                "100": "#f2f4f6",
                 "200": "#eeeeee",
                 "300": "#e0e0e0",
                 "400": "#bdbdbd",

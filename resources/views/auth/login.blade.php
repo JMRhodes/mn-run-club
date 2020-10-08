@@ -19,26 +19,27 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <div>
+            <div class="mb-6">
                 <x-jet-label value="{{ __('Email') }}" />
                 <x-jet-input type="email" name="email" :value="old('email')" required
                     autofocus />
             </div>
 
-            <div class="mt-4">
+            <div class="mb-6">
                 <x-jet-label value="{{ __('Password') }}" />
                 <x-jet-input type="password" name="password" required
                     autocomplete="current-password" />
             </div>
 
-            <div>
-                <label class="flex items-center">
+            <div class="flex justify-center">
+                {{-- <label class="flex items-center">
                     <input type="checkbox" class="form-checkbox" name="remember">
                     <span>{{ __('Remember me') }}</span>
-                </label>
+                </label> --}}
 
                 @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}">
+                    <a class="text-sm mb-6"
+                    href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
@@ -49,9 +50,9 @@
                 {{ __('Login') }}
             </x-jet-button>
 
-            <div>
+            <div class="flex justify-center mt-6 text-sm">
                 {{ __('I\'m a new user.') }}
-                <a href="{{ route('register') }}">
+                <a class="font-bold text-secondary ml-2 underline" href="{{ route('register') }}">
                     {{ __('Sign Up') }}
                 </a>
             </div>
