@@ -1,4 +1,4 @@
-<div class="w-full max-w-sm mt-16 mx-auto flex flex-col justify-center items-center">
+<div class="w-full max-w-sm mt-8 sm:mt-16 mx-auto flex flex-col justify-center items-center">
     <div class="w-full">
         {{ $logo }}
     </div>
