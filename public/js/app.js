@@ -13891,6 +13891,68 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -13899,7 +13961,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['sessions'],
+  props: ["sessions"],
   components: {
     JetActionMessage: _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_0__["default"],
     JetActionSection: _Jetstream_ActionSection__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -13913,10 +13975,10 @@ __webpack_require__.r(__webpack_exports__);
     return {
       confirmingLogout: false,
       form: this.$inertia.form({
-        '_method': 'DELETE',
-        password: ''
+        _method: "DELETE",
+        password: ""
       }, {
-        bag: 'logoutOtherBrowserSessions'
+        bag: "logoutOtherBrowserSessions"
       })
     };
   },
@@ -13924,7 +13986,7 @@ __webpack_require__.r(__webpack_exports__);
     confirmLogout: function confirmLogout() {
       var _this = this;
 
-      this.form.password = '';
+      this.form.password = "";
       this.confirmingLogout = true;
       setTimeout(function () {
         _this.$refs.password.focus();
@@ -13933,7 +13995,7 @@ __webpack_require__.r(__webpack_exports__);
     logoutOtherBrowserSessions: function logoutOtherBrowserSessions() {
       var _this2 = this;
 
-      this.form.post('/user/other-browser-sessions', {
+      this.form.post("/user/other-browser-sessions", {
         preserveScroll: true
       }).then(function (response) {
         if (!_this2.form.hasErrors()) {
@@ -37239,7 +37301,7 @@ var render = function() {
         fn: function() {
           return [
             _vm._v(
-              "\n        Manage and logout your active sessions on other browsers and devices.\n    "
+              "\n        Manage and logout your active sessions on other browsers and\n        devices.\n    "
             )
           ]
         },
@@ -37251,7 +37313,7 @@ var render = function() {
           return [
             _c("div", { staticClass: "text-sm text-gray-600" }, [
               _vm._v(
-                "\n            If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password.\n        "
+                "\n            If necessary, you may logout of all of your other browser\n            sessions across all of your devices. If you feel your account\n            has been compromised, you should also update your password.\n        "
               )
             ]),
             _vm._v(" "),
@@ -37259,101 +37321,116 @@ var render = function() {
               ? _c(
                   "div",
                   { staticClass: "mt-5 space-y-6" },
-                  _vm._l(_vm.sessions, function(session) {
-                    return _c("div", { staticClass: "flex items-center" }, [
-                      _c("div", [
-                        session.agent.is_desktop
-                          ? _c(
-                              "svg",
-                              {
-                                staticClass: "w-8 h-8 text-gray-500",
-                                attrs: {
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round",
-                                  "stroke-width": "2",
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor"
-                                }
-                              },
-                              [
-                                _c("path", {
+                  _vm._l(_vm.sessions, function(session, index) {
+                    return _c(
+                      "div",
+                      { key: index, staticClass: "flex items-center" },
+                      [
+                        _c("div", [
+                          session.agent.is_desktop
+                            ? _c(
+                                "svg",
+                                {
+                                  staticClass: "w-8 h-8 text-gray-500",
                                   attrs: {
-                                    d:
-                                      "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                    fill: "none",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    "stroke-width": "2",
+                                    viewBox: "0 0 24 24",
+                                    stroke: "currentColor"
                                   }
-                                })
-                              ]
-                            )
-                          : _c(
-                              "svg",
-                              {
-                                staticClass: "w-8 h-8 text-gray-500",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  viewBox: "0 0 24 24",
-                                  "stroke-width": "2",
-                                  stroke: "currentColor",
-                                  fill: "none",
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round"
-                                }
-                              },
-                              [
-                                _c("path", {
-                                  attrs: { d: "M0 0h24v24H0z", stroke: "none" }
-                                }),
-                                _c("rect", {
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                    }
+                                  })
+                                ]
+                              )
+                            : _c(
+                                "svg",
+                                {
+                                  staticClass: "w-8 h-8 text-gray-500",
                                   attrs: {
-                                    x: "7",
-                                    y: "4",
-                                    width: "10",
-                                    height: "16",
-                                    rx: "1"
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    viewBox: "0 0 24 24",
+                                    "stroke-width": "2",
+                                    stroke: "currentColor",
+                                    fill: "none",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
                                   }
-                                }),
-                                _c("path", {
-                                  attrs: { d: "M11 5h2M12 17v.01" }
-                                })
-                              ]
-                            )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "ml-3" }, [
-                        _c("div", { staticClass: "text-sm text-gray-600" }, [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(session.agent.platform) +
-                              " - " +
-                              _vm._s(session.agent.browser) +
-                              "\n                    "
-                          )
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M0 0h24v24H0z",
+                                      stroke: "none"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("rect", {
+                                    attrs: {
+                                      x: "7",
+                                      y: "4",
+                                      width: "10",
+                                      height: "16",
+                                      rx: "1"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: { d: "M11 5h2M12 17v.01" }
+                                  })
+                                ]
+                              )
                         ]),
                         _vm._v(" "),
-                        _c("div", [
-                          _c("div", { staticClass: "text-xs text-gray-500" }, [
+                        _c("div", { staticClass: "ml-3" }, [
+                          _c("div", { staticClass: "text-sm text-gray-600" }, [
                             _vm._v(
-                              "\n                            " +
-                                _vm._s(session.ip_address) +
-                                ",\n\n                            "
-                            ),
-                            session.is_current_device
-                              ? _c(
-                                  "span",
-                                  {
-                                    staticClass: "text-green-500 font-semibold"
-                                  },
-                                  [_vm._v("This device")]
-                                )
-                              : _c("span", [
-                                  _vm._v(
-                                    "Last active " + _vm._s(session.last_active)
-                                  )
-                                ])
+                              "\n                        " +
+                                _vm._s(session.agent.platform) +
+                                " -\n                        " +
+                                _vm._s(session.agent.browser) +
+                                "\n                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _c(
+                              "div",
+                              { staticClass: "text-xs text-gray-500" },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(session.ip_address) +
+                                    ",\n\n                            "
+                                ),
+                                session.is_current_device
+                                  ? _c(
+                                      "span",
+                                      {
+                                        staticClass:
+                                          "text-green-500 font-semibold"
+                                      },
+                                      [_vm._v("This device")]
+                                    )
+                                  : _c("span", [
+                                      _vm._v(
+                                        "Last active " +
+                                          _vm._s(session.last_active)
+                                      )
+                                    ])
+                              ]
+                            )
                           ])
                         ])
-                      ])
-                    ])
+                      ]
+                    )
                   }),
                   0
                 )
@@ -37415,7 +37492,7 @@ var render = function() {
                   fn: function() {
                     return [
                       _vm._v(
-                        "\n                Please enter your password to confirm you would like to logout of your other browser sessions across all of your devices.\n\n                "
+                        "\n                Please enter your password to confirm you would like to\n                logout of your other browser sessions across all of your\n                devices.\n\n                "
                       ),
                       _c(
                         "div",
