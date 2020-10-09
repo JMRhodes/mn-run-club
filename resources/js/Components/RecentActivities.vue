@@ -1,7 +1,7 @@
 <template>
     <div class="activities">
         <div
-            class="flex flex-row items-center justify-between px-6 sm:px-8 pt-4 pb-6 border-b border-gray-200"
+            class="flex flex-row items-center justify-between px-4 pt-4 pb-6 border-b-2 border-blue-900"
         >
             <div class="text-2xl font-bold">
                 Recent Activities
@@ -9,14 +9,6 @@
                 <span class="block text-gray-400 text-sm">
                     Today, 05 October
                 </span>
-            </div>
-            <div class="add-activity">
-                <add-activity :userId="$page.user.id">
-                    <Button
-                        class="bg-orange-std hover:bg-green-400 hover:border-green-500"
-                        >Add Activitiy</Button
-                    >
-                </add-activity>
             </div>
         </div>
         <!-- <div
@@ -27,8 +19,8 @@
         <ul class="activities__list">
             <li v-for="(activity, index) in activities" :key="activity.id">
                 <div
-                    class="activity__item flex items-center px-6 sm:px-8 py-4 border-gray-200"
-                    :class="index !== activities.length - 1 ? 'border-b' : ''"
+                    class="activity__item flex items-center p-4 border-blue-900"
+                    :class="index !== activities.length - 1 ? 'border-b-2' : ''"
                 >
                     <div class="user__avatar">
                         <img
@@ -64,14 +56,7 @@
 </template>
 
 <script>
-import Button from "./../Jetstream/Button";
-import AddActivity from "./AddActivity";
-
 export default {
-    components: {
-        Button,
-        AddActivity
-    },
     props: ["activities"]
 };
 </script>

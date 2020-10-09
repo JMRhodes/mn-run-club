@@ -1,6 +1,6 @@
 <template>
     <app-layout>
-        <RecentActivities :activities="activities" />
+        <recent-activities :activities="activities" />
     </app-layout>
 </template>
 

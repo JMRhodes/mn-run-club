@@ -37,7 +37,7 @@
             </div>
 
             <div class="block mt-4 mb-10 flex justify-end">
-                <a href="{{ route('login') }}">
+                <a class="text-sm" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
             </div>

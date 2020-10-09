@@ -1,30 +1,37 @@
 <template>
-    <div class="app min-h-screen bg-gray-100">
-        <navigation />
+    <div class="app bg-white min-h-screen flex-col flex">
+        <nav class="w-full border-b-2 border-blue-900">
+            <primary-navigation />
+        </nav>
+        <div class="page flex flex-1">
+            <!-- Page Content -->
+            <main class="drawer--main w-1/2 border-r-2 border-blue-900">
+                <slot></slot>
+            </main>
 
-        <!-- Page Content -->
-        <main class="drawer--main w-1/2 bg-white py-12  pb-4 my-8">
-            <slot></slot>
-        </main>
+            <!-- Page Content -->
+            <aside class="drawer--secondary">
+                <add-activity :userId="$page.user.id">
+                    <jet-button>Add Activitiy</jet-button>
+                </add-activity>
+            </aside>
 
-        <!-- Page Content -->
-        <aside class="drawer--secondary p-8 my-10">
-            <profile-actions/>
-        </aside>
-
-        <!-- Modal Portal -->
-        <portal-target name="modal" multiple> </portal-target>
+            <!-- Modal Portal -->
+            <portal-target name="modal" multiple> </portal-target>
+        </div>
     </div>
 </template>
 
 <script>
-import Navigation from "./../Components/Navigation";
-import ProfileActions from "./../Components/ProfileActions";
+import JetButton from "./../Jetstream/Button";
+import PrimaryNavigation from "./../Components/PrimaryNavigation";
+import AddActivity from "./../Components/AddActivity";
 
 export default {
     components: {
-        Navigation,
-        ProfileActions
+        JetButton,
+        PrimaryNavigation,
+        AddActivity
     },
 
     computed: {
@@ -34,17 +41,3 @@ export default {
     }
 };
 </script>
-
-<style lang="scss" scoped>
-.app {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-content: stretch;
-}
-.drawer {
-    &--main {
-        border-radius: 2rem;
-    }
-}
-</style>

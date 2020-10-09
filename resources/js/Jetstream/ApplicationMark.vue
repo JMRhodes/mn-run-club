@@ -10,7 +10,7 @@
         <title>logo</title>
         <path
             fill="none"
-            stroke="#000"
+            stroke="#1b2d45"
             stroke-width="2.8444"
             stroke-miterlimit="3"
             stroke-linecap="round"
