@@ -9,7 +9,7 @@
         </template>
 
         <template #content>
-            <div class="max-w-xl text-sm text-gray-600">
+            <div class="text-sm text-gray-600">
                 If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password.
             </div>
 
@@ -43,12 +43,12 @@
                 </div>
             </div>
 
-            <div class="flex items-center mt-5">
+            <div class="flex flex-col items-center mt-5">
                 <jet-button @click.native="confirmLogout">
                     Logout Other Browser Sessions
                 </jet-button>
 
-                <jet-action-message :on="form.recentlySuccessful" class="ml-3">
+                <jet-action-message :on="form.recentlySuccessful" class="mt-3">
                     Done.
                 </jet-action-message>
             </div>

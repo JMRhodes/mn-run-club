@@ -11,7 +11,7 @@
         <template #form>
             <!-- Profile Photo -->
             <div
-                class="col-span-6 sm:col-span-4"
+                class="w-full mb-6"
                 v-if="$page.jetstream.managesProfilePhotos"
             >
                 <!-- Profile Photo File Input -->
@@ -46,33 +46,35 @@
                     </span>
                 </div>
 
-                <jet-secondary-button
-                    class="mt-2 mr-2"
-                    type="button"
-                    @click.native.prevent="selectNewPhoto"
-                >
-                    Select A New Photo
-                </jet-secondary-button>
+                <div class="flex justify-between">
+                    <jet-secondary-button
+                        class="mt-2 mr-2"
+                        type="button"
+                        @click.native.prevent="selectNewPhoto"
+                    >
+                        Select A New Photo
+                    </jet-secondary-button>
 
-                <jet-secondary-button
-                    type="button"
-                    class="mt-2"
-                    @click.native.prevent="deletePhoto"
-                    v-if="$page.user.profile_photo_path"
-                >
-                    Remove Photo
-                </jet-secondary-button>
+                    <jet-secondary-button
+                        type="button"
+                        class="mt-2"
+                        @click.native.prevent="deletePhoto"
+                        v-if="$page.user.profile_photo_path"
+                    >
+                        Remove Photo
+                    </jet-secondary-button>
+                </div>
 
                 <jet-input-error :message="form.error('photo')" class="mt-2" />
             </div>
 
             <!-- Name -->
-            <div class="col-span-6 sm:col-span-4">
+            <div>
                 <jet-label for="name" value="Name" />
                 <jet-input
                     id="name"
                     type="text"
-                    class="mt-1 block w-full"
+                    class="mb-6"
                     v-model="form.name"
                     autocomplete="name"
                 />
@@ -80,12 +82,12 @@
             </div>
 
             <!-- Display Name -->
-            <div class="col-span-6 sm:col-span-4">
+            <div>
                 <jet-label for="display" value="Display" />
                 <jet-input
                     id="display"
                     type="text"
-                    class="mt-1 block w-full"
+                    class="mb-6"
                     v-model="form.display"
                     autocomplete="display"
                 />
@@ -96,12 +98,12 @@
             </div>
 
             <!-- Email -->
-            <div class="col-span-6 sm:col-span-4">
+            <div>
                 <jet-label for="email" value="Email" />
                 <jet-input
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mb-6"
                     v-model="form.email"
                 />
                 <jet-input-error :message="form.error('email')" class="mt-2" />

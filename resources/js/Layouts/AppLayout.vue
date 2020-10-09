@@ -10,7 +10,7 @@
             </main>
 
             <!-- Page Content -->
-            <aside class="drawer--secondary">
+            <aside class="drawer--secondary p-4">
                 <add-activity :userId="$page.user.id">
                     <jet-button>Add Activitiy</jet-button>
                 </add-activity>

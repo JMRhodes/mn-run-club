@@ -1,5 +1,5 @@
 <template>
-    <button :type="type" class="block w-full border-b-4 border-orange-500 text-white bg-orange-400 p-2 px-6 rounded-lg font-bold hover:bg-orange-500 hover:border-orange-600 active:border-orange-500 transition ease-in-out duration-150">
+    <button :type="type" class="block w-full bg-primary rounded p-4 font-bold transition ease-in-out duration-150">
         <slot></slot>
     </button>
 </template>

@@ -12510,8 +12510,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -12940,8 +12938,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['href', 'as']
+  props: ["href", "linkType"]
 });
 
 /***/ }),
@@ -12956,6 +12962,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SectionTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SectionTitle */ "./resources/js/Jetstream/SectionTitle.vue");
+//
 //
 //
 //
@@ -14000,7 +14007,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['sessions'],
+  props: ["sessions"],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     DeleteUserForm: _DeleteUserForm__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -14304,6 +14311,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
 /* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
 /* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
+//
+//
 //
 //
 //
@@ -34794,7 +34803,7 @@ var render = function() {
                       "span",
                       {
                         staticClass:
-                          "text-gray-800 text-base font-bold mr-4 leading-snug text-right"
+                          "text-base font-bold mr-4 leading-snug text-right"
                       },
                       [
                         _vm._v(
@@ -34875,14 +34884,9 @@ var render = function() {
                 }
               },
               [
-                _c(
-                  "jet-dropdown-link",
-                  {
-                    staticClass: "hover:bg-secondary focus:bg-secondary",
-                    attrs: { as: "button" }
-                  },
-                  [_vm._v("\n                Logout\n            ")]
-                )
+                _c("jet-dropdown-link", { attrs: { "link-type": "button" } }, [
+                  _vm._v("\n                Logout\n            ")
+                ])
               ],
               1
             )
@@ -34945,14 +34949,14 @@ var render = function() {
                 "div",
                 {
                   staticClass:
-                    "activity__data text-gray-800 flex flex-auto items-start justify-between"
+                    "activity__data flex flex-auto items-start justify-between"
                 },
                 [
                   _c(
                     "div",
                     {
                       staticClass:
-                        "user__name text-base font-bold mr-6 leading-tight"
+                        "user__name text-base font-bold mr-6 leading-snug"
                     },
                     [
                       _vm._v(
@@ -34964,7 +34968,7 @@ var render = function() {
                         "div",
                         {
                           staticClass:
-                            "activity__type font-medium font-xs text-gray-400"
+                            "activity__type font-medium text-xs text-gray-400"
                         },
                         [
                           _vm._v(
@@ -35106,7 +35110,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "md:grid md:grid-cols-3 md:gap-6" },
+    { staticClass: "p-4 py-6" },
     [
       _c("jet-section-title", {
         scopedSlots: _vm._u(
@@ -35131,14 +35135,9 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "mt-5 md:mt-0 md:col-span-2" },
-        [_vm._t("content")],
-        2
-      )
+      _vm._t("content")
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -35276,7 +35275,7 @@ var render = function() {
     "button",
     {
       staticClass:
-        "block w-full border-b-4 border-orange-500 text-white bg-orange-400 p-2 px-6 rounded-lg font-bold hover:bg-orange-500 hover:border-orange-600 active:border-orange-500 transition ease-in-out duration-150",
+        "block w-full bg-primary rounded p-4 font-bold transition ease-in-out duration-150",
       attrs: { type: _vm.type }
     },
     [_vm._t("default")],
@@ -35544,7 +35543,7 @@ var render = function() {
     "button",
     {
       staticClass:
-        "inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:shadow-outline-red active:bg-red-600 transition ease-in-out duration-150",
+        "block w-full bg-secondary rounded p-4 font-bold transition ease-in-out duration-150",
       attrs: { type: _vm.type }
     },
     [_vm._t("default")],
@@ -35722,12 +35721,12 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.as == "button"
+      _vm.linkType === "button"
         ? _c(
             "button",
             {
               staticClass:
-                "block w-full font-medium px-4 py-2 text-sm leading-5 text-blue-800 text-left hover:bg-primary focus:outline-none focus:bg-primary transition duration-150 ease-in-out",
+                "block w-full font-medium px-4 py-2 text-sm leading-5 text-blue-800 text-left hover:bg-secondary focus:outline-none focus:bg-secondary transition duration-150 ease-in-out",
               attrs: { type: "submit" }
             },
             [_vm._t("default")],
@@ -35771,7 +35770,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "md:grid md:grid-cols-3 md:gap-6" },
+    { staticClass: "p-4 py-6" },
     [
       _c("jet-section-title", {
         scopedSlots: _vm._u(
@@ -35796,7 +35795,7 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-5 md:mt-0 md:col-span-2" }, [
+      _c("div", [
         _c(
           "form",
           {
@@ -35809,21 +35808,14 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "overflow-hidden sm:rounded-md" }, [
-              _c("div", { staticClass: "mb-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "grid grid-cols-6 gap-6" },
-                  [_vm._t("form")],
-                  2
-                )
-              ]),
+              _c("div", { staticClass: "mb-3" }, [_vm._t("form")], 2),
               _vm._v(" "),
               _vm.hasActions
                 ? _c(
                     "div",
                     {
                       staticClass:
-                        "flex items-center justify-start bg-gray-50 text-right"
+                        "flex flex-col items-center justify-start bg-gray-50 text-right"
                     },
                     [_vm._t("actions")],
                     2
@@ -35861,7 +35853,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("input", {
     ref: "input",
-    staticClass: "form-input text-lg rounded-lg px-6",
+    staticClass:
+      "w-full font-medium form-input px-4 text-xl w-full rounded border-2 border-blue-900",
     domProps: { value: _vm.value },
     on: {
       input: function($event) {
@@ -35933,11 +35926,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("label", { staticClass: "block font-bold text-gray-700" }, [
-    _vm.value
-      ? _c("span", [_vm._v(_vm._s(_vm.value))])
-      : _c("span", [_vm._t("default")], 2)
-  ])
+  return _c(
+    "label",
+    { staticClass: "block uppercase text-xs font-bold mb-1" },
+    [
+      _vm.value
+        ? _c("span", [_vm._v(_vm._s(_vm.value))])
+        : _c("span", [_vm._t("default")], 2)
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -36162,7 +36159,7 @@ var render = function() {
     "button",
     {
       staticClass:
-        "inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150",
+        "block w-full bg-tertiary rounded p-4 py-2 font-bold transition ease-in-out duration-150",
       attrs: { type: _vm.type }
     },
     [_vm._t("default")],
@@ -36199,8 +36196,8 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "hidden sm:block" }, [
-      _c("div", { staticClass: "py-8" }, [
-        _c("div", { staticClass: "border-t border-gray-200" })
+      _c("div", { staticClass: "py-2" }, [
+        _c("div", { staticClass: "border-b-2 border-blue-900" })
       ])
     ])
   }
@@ -36226,22 +36223,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "md:col-span-1" }, [
-    _c("div", { staticClass: "px-4 sm:px-0" }, [
-      _c(
-        "h3",
-        { staticClass: "text-lg font-medium text-gray-900" },
-        [_vm._t("title")],
-        2
-      ),
-      _vm._v(" "),
-      _c(
-        "p",
-        { staticClass: "mt-1 text-sm text-gray-600" },
-        [_vm._t("description")],
-        2
-      )
-    ])
+  return _c("div", { staticClass: "mb-8" }, [
+    _c("h3", { staticClass: "text-xl font-bold" }, [_vm._t("title")], 2),
+    _vm._v(" "),
+    _c(
+      "p",
+      { staticClass: "mt-1 text-sm text-gray-600" },
+      [_vm._t("description")],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -36287,7 +36277,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "aside",
-          { staticClass: "drawer--secondary" },
+          { staticClass: "drawer--secondary p-4" },
           [
             _c(
               "add-activity",
@@ -37065,7 +37055,7 @@ var render = function() {
         key: "content",
         fn: function() {
           return [
-            _c("div", { staticClass: "max-w-xl text-sm text-gray-600" }, [
+            _c("div", { staticClass: "text-sm text-gray-600" }, [
               _vm._v(
                 "\n            Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.\n        "
               )
@@ -37259,7 +37249,7 @@ var render = function() {
         key: "content",
         fn: function() {
           return [
-            _c("div", { staticClass: "max-w-xl text-sm text-gray-600" }, [
+            _c("div", { staticClass: "text-sm text-gray-600" }, [
               _vm._v(
                 "\n            If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password.\n        "
               )
@@ -37371,7 +37361,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "flex items-center mt-5" },
+              { staticClass: "flex flex-col items-center mt-5" },
               [
                 _c(
                   "jet-button",
@@ -37392,7 +37382,7 @@ var render = function() {
                 _c(
                   "jet-action-message",
                   {
-                    staticClass: "ml-3",
+                    staticClass: "mt-3",
                     attrs: { on: _vm.form.recentlySuccessful }
                   },
                   [_vm._v("\n                Done.\n            ")]
@@ -37572,52 +37562,30 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _c("div", [
-        _c(
-          "div",
-          { staticClass: "max-w-7xl mx-auto py-10 sm:px-6 lg:px-8" },
-          [
-            _c("update-profile-information-form", {
-              attrs: {
-                name: _vm.$page.user.name,
-                display: _vm.$page.user.display,
-                email: _vm.$page.user.email
-              }
-            }),
-            _vm._v(" "),
-            _c("jet-section-border"),
-            _vm._v(" "),
-            _c("update-password-form", { staticClass: "mt-10 sm:mt-0" }),
-            _vm._v(" "),
-            _vm.$page.jetstream.canManageTwoFactorAuthentication
-              ? _c(
-                  "div",
-                  [
-                    _c("jet-section-border"),
-                    _vm._v(" "),
-                    _c("two-factor-authentication-form", {
-                      staticClass: "mt-10 sm:mt-0"
-                    })
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _c("jet-section-border"),
-            _vm._v(" "),
-            _c("logout-other-browser-sessions-form", {
-              staticClass: "mt-10 sm:mt-0",
-              attrs: { sessions: _vm.sessions }
-            }),
-            _vm._v(" "),
-            _c("jet-section-border"),
-            _vm._v(" "),
-            _c("delete-user-form", { staticClass: "mt-10 sm:mt-0" })
-          ],
-          1
-        )
-      ])
-    ]
+      _c("update-profile-information-form", {
+        attrs: {
+          name: _vm.$page.user.name,
+          display: _vm.$page.user.display,
+          email: _vm.$page.user.email
+        }
+      }),
+      _vm._v(" "),
+      _c("jet-section-border"),
+      _vm._v(" "),
+      _c("update-password-form", { staticClass: "mt-10 sm:mt-0" }),
+      _vm._v(" "),
+      _c("jet-section-border"),
+      _vm._v(" "),
+      _c("logout-other-browser-sessions-form", {
+        staticClass: "mt-10 sm:mt-0",
+        attrs: { sessions: _vm.sessions }
+      }),
+      _vm._v(" "),
+      _c("jet-section-border"),
+      _vm._v(" "),
+      _c("delete-user-form", { staticClass: "mt-10 sm:mt-0" })
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -37900,7 +37868,6 @@ var render = function() {
           return [
             _c(
               "div",
-              { staticClass: "col-span-6 sm:col-span-4" },
               [
                 _c("jet-label", {
                   attrs: { for: "current_password", value: "Current Password" }
@@ -37908,7 +37875,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("jet-input", {
                   ref: "current_password",
-                  staticClass: "mt-1 block w-full",
+                  staticClass: "mb-6",
                   attrs: {
                     id: "current_password",
                     type: "password",
@@ -37933,14 +37900,13 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "col-span-6 sm:col-span-4" },
               [
                 _c("jet-label", {
                   attrs: { for: "password", value: "New Password" }
                 }),
                 _vm._v(" "),
                 _c("jet-input", {
-                  staticClass: "mt-1 block w-full",
+                  staticClass: "mb-6",
                   attrs: {
                     id: "password",
                     type: "password",
@@ -37965,7 +37931,6 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "col-span-6 sm:col-span-4" },
               [
                 _c("jet-label", {
                   attrs: {
@@ -37975,7 +37940,7 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("jet-input", {
-                  staticClass: "mt-1 block w-full",
+                  staticClass: "mb-6",
                   attrs: {
                     id: "password_confirmation",
                     type: "password",
@@ -38079,7 +38044,7 @@ var render = function() {
             _vm.$page.jetstream.managesProfilePhotos
               ? _c(
                   "div",
-                  { staticClass: "col-span-6 sm:col-span-4" },
+                  { staticClass: "w-full mb-6" },
                   [
                     _c("input", {
                       ref: "photo",
@@ -38141,44 +38106,51 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c(
-                      "jet-secondary-button",
-                      {
-                        staticClass: "mt-2 mr-2",
-                        attrs: { type: "button" },
-                        nativeOn: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.selectNewPhoto($event)
-                          }
-                        }
-                      },
+                      "div",
+                      { staticClass: "flex justify-between" },
                       [
-                        _vm._v(
-                          "\n                Select A New Photo\n            "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _vm.$page.user.profile_photo_path
-                      ? _c(
+                        _c(
                           "jet-secondary-button",
                           {
-                            staticClass: "mt-2",
+                            staticClass: "mt-2 mr-2",
                             attrs: { type: "button" },
                             nativeOn: {
                               click: function($event) {
                                 $event.preventDefault()
-                                return _vm.deletePhoto($event)
+                                return _vm.selectNewPhoto($event)
                               }
                             }
                           },
                           [
                             _vm._v(
-                              "\n                Remove Photo\n            "
+                              "\n                    Select A New Photo\n                "
                             )
                           ]
-                        )
-                      : _vm._e(),
+                        ),
+                        _vm._v(" "),
+                        _vm.$page.user.profile_photo_path
+                          ? _c(
+                              "jet-secondary-button",
+                              {
+                                staticClass: "mt-2",
+                                attrs: { type: "button" },
+                                nativeOn: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.deletePhoto($event)
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                    Remove Photo\n                "
+                                )
+                              ]
+                            )
+                          : _vm._e()
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c("jet-input-error", {
                       staticClass: "mt-2",
@@ -38191,12 +38163,11 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "col-span-6 sm:col-span-4" },
               [
                 _c("jet-label", { attrs: { for: "name", value: "Name" } }),
                 _vm._v(" "),
                 _c("jet-input", {
-                  staticClass: "mt-1 block w-full",
+                  staticClass: "mb-6",
                   attrs: { id: "name", type: "text", autocomplete: "name" },
                   model: {
                     value: _vm.form.name,
@@ -38217,14 +38188,13 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "col-span-6 sm:col-span-4" },
               [
                 _c("jet-label", {
                   attrs: { for: "display", value: "Display" }
                 }),
                 _vm._v(" "),
                 _c("jet-input", {
-                  staticClass: "mt-1 block w-full",
+                  staticClass: "mb-6",
                   attrs: {
                     id: "display",
                     type: "text",
@@ -38249,12 +38219,11 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "col-span-6 sm:col-span-4" },
               [
                 _c("jet-label", { attrs: { for: "email", value: "Email" } }),
                 _vm._v(" "),
                 _c("jet-input", {
-                  staticClass: "mt-1 block w-full",
+                  staticClass: "mb-6",
                   attrs: { id: "email", type: "email" },
                   model: {
                     value: _vm.form.email,

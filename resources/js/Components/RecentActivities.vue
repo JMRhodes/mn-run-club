@@ -30,14 +30,14 @@
                         />
                     </div>
                     <div
-                        class="activity__data text-gray-800 flex flex-auto items-start justify-between"
+                        class="activity__data flex flex-auto items-start justify-between"
                     >
                         <div
-                            class="user__name text-base font-bold mr-6 leading-tight"
+                            class="user__name text-base font-bold mr-6 leading-snug"
                         >
                             {{ activity.user.data.name }}
                             <div
-                                class="activity__type font-medium font-xs text-gray-400"
+                                class="activity__type font-medium text-xs text-gray-400"
                             >
                                 {{
                                     activity.date.complete

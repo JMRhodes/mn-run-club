@@ -1,7 +1,7 @@
 <template>
     <div class="hidden sm:block">
-        <div class="py-8">
-            <div class="border-t border-gray-200"></div>
+        <div class="py-2">
+            <div class="border-b-2 border-blue-900"></div>
         </div>
     </div>
 </template>

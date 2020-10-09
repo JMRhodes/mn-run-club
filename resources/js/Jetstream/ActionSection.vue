@@ -1,22 +1,20 @@
 <template>
-    <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="p-4 py-6">
         <jet-section-title>
             <template #title><slot name="title"></slot></template>
             <template #description><slot name="description"></slot></template>
         </jet-section-title>
 
-        <div class="mt-5 md:mt-0 md:col-span-2">
-                <slot name="content"></slot>
-        </div>
+        <slot name="content"></slot>
     </div>
 </template>
 
 <script>
-    import JetSectionTitle from './SectionTitle'
+import JetSectionTitle from "./SectionTitle";
 
-    export default {
-        components: {
-            JetSectionTitle,
-        }
+export default {
+    components: {
+        JetSectionTitle
     }
+};
 </script>

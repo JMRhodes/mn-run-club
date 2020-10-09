@@ -7,7 +7,7 @@
                 class="flex text-sm focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out items-center"
             >
                 <span
-                    class="text-gray-800 text-base font-bold mr-4 leading-snug text-right"
+                    class="text-base font-bold mr-4 leading-snug text-right"
                     >Hello,
                     {{
                         $page.user.display
@@ -48,7 +48,7 @@
 
             <!-- Authentication -->
             <form @submit.prevent="logout">
-                <jet-dropdown-link as="button" class="hover:bg-secondary focus:bg-secondary">
+                <jet-dropdown-link link-type="button">
                     Logout
                 </jet-dropdown-link>
             </form>
